@@ -59,6 +59,11 @@ export default function Home() {
                       <span className='font-bold uppercase'>
                         {player.data.name}
                       </span>
+                      <div className='fishes'>
+                        <span className='font-bold uppercase'>
+                          perch: {player.data.perch}
+                        </span>
+                      </div>
                       <div className='flex flex-col justify-center items-center bg-purple-800 p-2 rounded-sm'>
                         <span className='text-purple-100 font-bold text-xs'>
                           Pts:

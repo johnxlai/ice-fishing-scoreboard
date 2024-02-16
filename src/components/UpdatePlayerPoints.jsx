@@ -6,10 +6,21 @@ const EditPlayer = ({ players }) => {
   const [id, setId] = useState('');
   const [newPoints, setNewPoints] = useState('');
   const [currentPoints, setCurrentPoints] = useState('');
+  const [currentPlayerId, setCurrentPlayerId] = useState();
+
+  //add correct fish to player object
+  function findFish(fish) {
+    if (fish === '1') {
+      console.log('1 perch');
+      currentPlayerId.data.perch += 1;
+      console.log(currentPlayerId.data, 'perch');
+    }
+  }
 
   //find current player point
   function findCurrentPoints(id) {
     const player = players.find((player) => player.id === id);
+    setCurrentPlayerId(player);
     setCurrentPoints(player.data.points);
     // console.log(player.data.points, 'current points');
   }
@@ -66,6 +77,7 @@ const EditPlayer = ({ players }) => {
           value={newPoints}
           onChange={(e) => {
             setNewPoints(e.target.value);
+            findFish(e.target.value);
           }}
           id='species'
           className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4'
