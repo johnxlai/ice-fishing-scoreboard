@@ -29,7 +29,13 @@ const EditPlayer = ({ players }) => {
     e.preventDefault();
 
     const docRef = doc(db, 'players', id);
-    updateDoc(docRef, { points: parseInt(currentPoints) + parseInt(newPoints) })
+    updateDoc(docRef, {
+      points: parseInt(currentPoints) + parseInt(newPoints),
+      perch: currentPlayerId.data.perch++,
+      whitefish: currentPlayerId.data.whitefish++,
+      walleye: currentPlayerId.data.walleye++,
+      perch: currentPlayerId.data.perch++,
+    })
       .then((res) => {
         // console.log(res);
         //clear input fields
